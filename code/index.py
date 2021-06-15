@@ -2,7 +2,7 @@
 # python index.py --dataset dataset --index index.csv
 
 # import the necessary packages
-from pyimagesearch.colordescriptor import ColorDescriptor
+from colordescriptor import ColorDescriptor
 import argparse
 import glob
 import cv2
@@ -22,9 +22,7 @@ class Indexer:
         self.ColorDesc=ColorDesc
 
     def WriteDB(self,IndexOption,Outputfile):
-        #IndexOption :  1 ---> Hist
-        #               2 ---> Hog
-        #               3 ---> Shape
+
         cd = ColorDescriptor(self.ColorDesc)
         # open the output index file for writing
         if os.path.exists(Outputfile):
@@ -38,12 +36,9 @@ class Indexer:
             imageID = imagePath[imagePath.rfind("/") + 1:]
             image = cv2.imread(imagePath)
             # describe the image
-            if IndexOption == 2:
+            if IndexOption == 1:
                 features = cd.HOG(image)
-            #elif IndexOption == 2 :
-                #features = cd.HOG(image)
-            #else:
-                #features = cd.gabour(image)
+
             # write the features to file
             features = [str(f) for f in features]
             output.write("%s,%s\n" % (imagePath, ",".join(features)))
@@ -51,6 +46,6 @@ class Indexer:
         output.close()
 
     def IndexHog(self):
-        self.WriteDB(2,"IndexHog.csv")
+        self.WriteDB(1,"IndexHog.csv")
         pass
 

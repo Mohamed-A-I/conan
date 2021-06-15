@@ -2,8 +2,8 @@
 # python search.py --index index.csv --query queries/103100.png --result-path dataset
 
 # import the necessary packages
-from pyimagesearch.colordescriptor import ColorDescriptor
-from pyimagesearch.searcher import Searcher
+from colordescriptor import ColorDescriptor
+from searcher import Searcher
 import argparse
 import cv2
 from sklearn.svm import LinearSVC
@@ -45,14 +45,7 @@ class Retriever:
         self.features=self.cd.HOG(self.Query)
         self.GetSearchResult("IndexHog.csv")
         pass
-    def HistSearch(self):
-        self.features=self.cd.describe(self.Query)
-        self.GetSearchResult("IndexHist.csv")
-        pass
-    def ShapeSearch(self):
-        self.features=self.cd.gabour(self.Query)
-        self.GetSearchResult("IndexShape.csv")
-        pass
+
     def GetImageList(self):
         for (score, resultID) in self.results:
             # load the result image and display it

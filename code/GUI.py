@@ -6,13 +6,12 @@ from tkinter import filedialog as fd
 from PIL import ImageTk, Image
 from index import Indexer
 from search import Retriever
-from keyframes_extract_diff import video_indexer
+
 import os
 from pathlib import Path
 import cv2
 from tkinter import ttk
-from videoseaarch import vid_search
-from video_player import vid_player
+
 root = Tk()
 root.geometry('800x650')
 root.title('CBIR')
@@ -42,21 +41,12 @@ def showHelp():
            """
     infomessage(str1, "instructions")
 
-video_name=0
-def video_opener():
-    global video_name
-    filename = fd.askopenfilename()
-    video_name=filename
+
     
 
      
 
-def ShowVideoResults():
-    vid=vid_search()
-    print(video_name)
-    a=vid.search({"dataset":video_name})
-    print(a)
-    vid_player(ResultImg2,a)
+
     
 
      
@@ -90,10 +80,7 @@ def ShowResults():
     Result = Retriever(imagePath)
     if RetrieveOption == "HOG":
         Result.HogSearch()
-    elif RetrieveOption == "SHAPE":
-        Result.ShapeSearch()
-    else :
-        Result.HistSearch()
+
     ImageResultPaths = Result.GetImageList()
     imglist.clear()
     for i, imagepath in enumerate(ImageResultPaths):
@@ -114,16 +101,12 @@ def UpdateDB():
     # update index.csv file
     infomessage("Please wait this may take a while", "UpdatingDatabase")
     index = Indexer()
-    #index.IndexHist()
+
     index.IndexHog()
-    #index.IndexShape()
+
     infomessage("Database  has been  Updated", "Database Status")
 
-def update_video():
-    infomessage("Please wait this may take a while", "UpdatingDatabase")
-    index=video_indexer()
-    index.index() 
-    infomessage("Database  has been  Updated", "Database Status")
+
 
 
 def t1():
@@ -156,48 +139,47 @@ def getorigin(eventorigin):
 ########################################################
 tabControl = ttk.Notebook(root)
 image_tab = ttk.Frame(tabControl)
-video_tab = ttk.Frame(tabControl)
+
 tabControl.pack(expand=1, fill="both")
 tabControl.add(image_tab, text='Image Search')
-tabControl.add(video_tab, text='Video Search')
+
 
 # menu
 ##########################################################
 menu_bar = Menu(root)
 file_menu = Menu(menu_bar, tearoff=0)
 help_menu = Menu(menu_bar, tearoff=0)
-video_menu = Menu(menu_bar, tearoff=0)
+
 help_menu.add_command(label='Instructions', command=showHelp)
 
 
-video_menu.add_command(label='Update Video DB', command=update_video)
+
 
 file_menu.add_command(label='UpdateDB', accelerator='Alt+F4', command=UpdateDB)
 file_menu.add_separator()
 file_menu.add_command(label='Exit', accelerator='Alt+F4', command=exit)
 menu_bar.add_cascade(label='File', menu=file_menu)
 menu_bar.add_cascade(label='Help', menu=help_menu)
-menu_bar.add_cascade(label='Video', menu=video_menu)
+
 root.config(menu=menu_bar)
 
 # image retreival tab
 #################################################################
 
 lf = LabelFrame(image_tab, text='Image Query', bg='MistyRose4', fg='white')
-R1 = Radiobutton(lf, text="Option 1", value=1, command=t1, bg='MistyRose4')
+R1 = Radiobutton(lf, text="HOG", value=1, command=t1, bg='MistyRose4')
 R1.grid(row=0, column=0)
-R2 = Radiobutton(lf, text="Option 2", value=2, command=t2, bg='MistyRose4')
-R2.grid(row=1, column=0)
+
 n1 = StringVar()
 method1 = ttk.Combobox(lf, width=20, textvariable=n1)
 img = Image.open("loading.png").resize((300, 170), Image.ANTIALIAS)
 img = ImageTk.PhotoImage(img, Image.ANTIALIAS)
-method1['values'] = ('COLOR HISTOGRAM', 'HISTOGRAM')
+method1['values'] = ('HOG')
 method1.grid(row=0, column=1)
 n2 = StringVar()
-method2 = ttk.Combobox(lf, width=20, textvariable=n2)
-method2['values'] = ('HOG', 'SHAPE')
-method2.grid(row=1, column=1)
+
+
+
 lf.pack(fill='both')
 Button(lf, text='Browse', bd=3, relief=RAISED, width=20, command=file_opener).grid(row=2, column=0, columnspan=2)
 Button(lf, text='Retrieve', bd=3, relief=RAISED, width=20, command=ShowResults).grid(row=3, column=0, columnspan=2)
@@ -217,15 +199,9 @@ ResultImg.bind("<Button 1>", getorigin)
 ##############################################################
 
 
-lf2 = LabelFrame(video_tab, text='Video Query', bg='MistyRose4', fg='white')
-lf2.pack(fill='both')
-Button(lf2, text='Browse', bd=3, relief=RAISED, width=20, command=video_opener).grid(row=2, column=0, columnspan=2)
-Button(lf2, text='Retrieve', bd=3, relief=RAISED, width=20, command=ShowVideoResults).grid(row=3, column=0,
-                                                                                           columnspan=2)
-OutputFrame2 = LabelFrame(video_tab, bd=2, text="Result", background='MistyRose', fg="gray14")
-OutputFrame2.pack(expand='yes', fill='both')
-ResultImg2 = Canvas(OutputFrame2, takefocus=0, relief=SUNKEN, background='MistyRose4', bd=2)
-ResultImg2.pack(expand=True, fill='both')
+
+
+
 
 root.mainloop()
 
