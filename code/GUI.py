@@ -84,7 +84,7 @@ class Conan:
 
 
 
-        tkinter.Button(self.app,text="Insert",command=self.insert_gui).place(x=700,y=450)
+        #tkinter.Button(self.app,text="Insert",command=self.insert_gui).place(x=700,y=450)
 
 
 ############################################################
@@ -96,6 +96,8 @@ class Conan:
             menubar = tkinter.Menu(self.app)
             menubar.add_command(label="Browse",command=self.image_search)
             menubar.add_command(label="Search", command=self.search)
+            menubar.add_command(label="updateDB", command=self.updateDB)
+            menubar.add_command(label="add INFO", command=self.insert_gui)
 
             self.app.config(menu=menubar)
     def insert_gui(self):
@@ -116,7 +118,7 @@ class Conan:
         self.person1 = self.find_image()
         #os.system("cp {}  /dataset".format(self.person1))
         img = Image.open(self.person1)
-        img = img.resize((500, 250), Image.ANTIALIAS)
+        img = img.resize((250, 250), Image.ANTIALIAS)
         img = ImageTk.PhotoImage(img)
         panel =tkinter.Label(self.search, image = img)
         panel.image = img
@@ -127,25 +129,25 @@ class Conan:
 
     def entry_data(self):
 
-        tkinter.Label(self.search,text="Name").place(x=10,y=300)
+        tkinter.Label(self.search,text="Name:").place(x=10,y=300)
         self.name_entry = tkinter.Entry(self.search)
         self.name_entry.place(x=80,y=300)
 
-        tkinter.Label(self.search,text="Tel").place(x=10,y=335)
+        tkinter.Label(self.search,text="Tel:").place(x=10,y=335)
         self.tel_entry = tkinter.Entry(self.search)
         self.tel_entry.place(x=80,y=335)
  
-        tkinter.Label(self.search,text="Addr.").place(x=10,y=370)
+        tkinter.Label(self.search,text="Addr:").place(x=10,y=370)
         self.add_entry = tkinter.Entry(self.search)
         self.add_entry.place(x=80,y=370)
 
-        tkinter.Label(self.search,text="descr.").place(x=10,y=405)
+        tkinter.Label(self.search,text="descr:").place(x=10,y=405)
         self.des_entry = tkinter.Entry(self.search)
         self.des_entry.place(x=80,y=405)
 
         tkinter.Button(self.search,text="Insert",command=self.insert).place(x=90,y=450)
 
-        tkinter.Button(self.search,text="updateDB",command=self.updateDB).place(x=160,y=450)
+        #tkinter.Button(self.search,text="updateDB",command=self.updateDB).place(x=160,y=450)
     
 
     def image_search(self):
