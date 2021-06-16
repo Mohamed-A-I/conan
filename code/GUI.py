@@ -17,8 +17,8 @@ from person import Person
 
 class Conan:
     def __init__(self):
-        self.person1=Person()
-        self.person2=Person()
+        #self.person1=Person()
+        #self.person2=Person()
 
         self.app = tkinter.Tk()
         self.app.geometry("800x500")
@@ -115,7 +115,7 @@ class Conan:
 
     def show_image(self):
         self.person1 = self.find_image()
-        os.system("cp {}  /dataset".format(self.person1))
+        #os.system("cp {}  /dataset".format(self.person1))
         img = Image.open(self.person1)
         img = img.resize((500, 250), Image.ANTIALIAS)
         img = ImageTk.PhotoImage(img)
@@ -220,10 +220,10 @@ class Conan:
             result=cursor.fetchall()
             for row in result:
                 print(row)
-                self.name.set("Name" + row[1])
-                self.tel.set("Tel" + row[2])
-                self.addr.set("addr" + row[3])
-                self.des.set( "Desc." + row[4])
+                self.name.set("Name: " + row[1])
+                self.tel.set("Tel: " + row[2])
+                self.addr.set("addr: " + row[3])
+                self.des.set( "Des: " + row[4])
 
         except:
             print("unable to fetch data")

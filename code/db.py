@@ -7,20 +7,16 @@ print("db connected")
 
 
 
-
-id="helary"
-
 cursor=db.cursor()
-
-sql="SELECT * FROM `people` WHERE name ='%s' " %(id)
-
+cursor.execute("DROP TABLE IF EXISTS EMPLOYEE")
+    
+sql = "CREATE TABLE people ( id CHAR(30)NOT NULL ,NAME CHAR(20) , TEL CHAR(15), ADDR CHAR(20), DIS CHAR(50) )"
 try:
     cursor.execute(sql)
-    result=cursor.fetchall()
-    for row in result:
-        print(row)
+    db.commit()
 except:
-    print("unable to fetch data")
+    db.rollback()
     
+ 
 db.close()
 
