@@ -3,19 +3,16 @@
 
 # import the necessary packages
 from colordescriptor import ColorDescriptor
-import argparse
+
+
+
+
 import glob
 import cv2
 import os
-from sklearn.svm import LinearSVC
-from skimage import feature
-import argparse
-import glob
-import cv2
-import os
-from skimage.io import imread
+
 import face_recognition
-# construct the argument parser and parse the arguments
+
 # initialize the color descriptor
 class Indexer:
     def __init__(self,ColorDesc=(8, 12, 3)):

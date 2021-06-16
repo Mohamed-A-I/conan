@@ -1,29 +1,18 @@
-# USAGE
-# python search.py --index index.csv --query queries/103100.png --result-path dataset
+
 
 # import the necessary packages
 from colordescriptor import ColorDescriptor
 from searcher import Searcher
-import argparse
-import cv2
-from sklearn.svm import LinearSVC
-from skimage import feature
-import argparse
+
+
+
 import glob
 import cv2
 import os
-from skimage.io import imread
+
 import face_recognition
 
-"""# construct the argument parser and parse the arguments
-ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--index", required = True,
-	help = "Path to where the computed index will be stored")
-ap.add_argument("-q", "--query", required = True,
-	help = "Path to the query image")
-ap.add_argument("-r", "--result-path", required = True,
-	help = "Path to the result path")
-args = vars(ap.parse_args())"""
+
 
 
 class Retriever:
