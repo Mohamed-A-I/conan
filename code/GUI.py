@@ -186,7 +186,7 @@ class Conan:
             db.rollback()
             
         db.close()
-        showinfo("insert done")
+        showinfo("insert done","insert done")
 
 
     
