@@ -51,8 +51,8 @@ class Conan:
               )
         t2.place(x=400,y=280)
 
-        self.app.after(1000, t1.destroy)
-        self.app.after(1000, t2.destroy)
+        self.app.after(3000, t1.destroy)
+        self.app.after(3000, t2.destroy)
      
 
 
@@ -65,23 +65,23 @@ class Conan:
 
       
 
-        tkinter.Button(self.app,text="search",command=self.search).place(x=220,y=300)
-        tkinter.Button(self.app,text="browse",command=self.image_search).place(x=150,y=300)
-      
+        # tkinter.Button(self.app,text="search",command=self.search).place(x=220,y=300)
+        # tkinter.Button(self.app,text="browse",command=self.image_search).place(x=150,y=300)
+        self.menu()
 
-        tkinter.Label(self.app,text="Name").place(x=550,y=300)
-        tkinter.Label(self.app,text="tel").place(x=550,y=335)
-        tkinter.Label(self.app,text="Addr.").place(x=550,y=370)
-        tkinter.Label(self.app,text="descr.").place(x=550,y=405)
+        # tkinter.Label(self.app,text="Name").place(x=550,y=300)
+        # tkinter.Label(self.app,text="tel").place(x=550,y=335)
+        # tkinter.Label(self.app,text="Addr.").place(x=550,y=370)
+        # tkinter.Label(self.app,text="descr.").place(x=550,y=405)
 
         self.name = tkinter.StringVar()
         self.tel = tkinter.StringVar()
         self.addr = tkinter.StringVar()
         self.des = tkinter.StringVar()
-        tkinter.Label(self.app,textvariable=self.name).place(x=600,y=300)
-        tkinter.Label(self.app,textvariable=self.tel ).place(x=600,y=335)
-        tkinter.Label(self.app,textvariable=self.addr).place(x=600,y=370)
-        tkinter.Label(self.app,textvariable=self.des).place(x=600,y=405)
+        tkinter.Label(self.app,textvariable=self.name ,bg='grey').place(x=600,y=300)
+        tkinter.Label(self.app,textvariable=self.tel,bg='grey' ).place(x=600,y=335)
+        tkinter.Label(self.app,textvariable=self.addr ,bg='grey').place(x=600,y=370)
+        tkinter.Label(self.app,textvariable=self.des ,bg='grey').place(x=600,y=405)
 
 
 
@@ -93,18 +93,24 @@ class Conan:
 #                     Search GUI                           #     
 #                                                          #
 # ##########################################################  
+    def menu(self):
+            menubar = tkinter.Menu(self.app)
+            menubar.add_command(label="Browse",command=self.image_search)
+            menubar.add_command(label="Search", command=self.search)
+
+            self.app.config(menu=menubar)
     def insert_gui(self):
 
         self.search = Toplevel(self.app)
         self.search.geometry("300x500")
-        self.search.title("conan search")
+        self.search.title("conan Database")
         self.search.resizable(height=0,width=0)
         tkinter.Button(self.search,text="Browse",command=self.show_image).place(x=125,y=255)
         self.entry_data()
 
 
     def find_image(self):
-        filename = fd.askopenfilename(title ='"pen')
+        filename = fd.askopenfilename(title ='browese missing person')
         return filename
 
     def show_image(self):
@@ -126,7 +132,7 @@ class Conan:
         self.name_entry = tkinter.Entry(self.search)
         self.name_entry.place(x=80,y=300)
 
-        tkinter.Label(self.search,text="Age").place(x=10,y=335)
+        tkinter.Label(self.search,text="Tel").place(x=10,y=335)
         self.tel_entry = tkinter.Entry(self.search)
         self.tel_entry.place(x=80,y=335)
  
@@ -155,18 +161,14 @@ class Conan:
 
     def updateDB(self):
         # update index.csv file
-        self.infomessage("Please wait this may take a while", "UpdatingDatabase")
+        showinfo("Please wait this may take a while", "UpdatingDatabase")
         index = Indexer()
         index.IndexHog()
       
-        self.infomessage("Database  has been  Updated", "Database Status")
+        showinfo("Database  has been  Updated", "Database Status")
 
 
-    def infomessage(str, info, event=None):
-        showinfo(info, str)
-    def errormessage(str, event=None):
-        showinfo.showerror("Error", str)
-
+   
     def insert(self):
         id=self.person1
         id="dataset/"+id.split("/")[-1]
@@ -184,7 +186,7 @@ class Conan:
             db.rollback()
             
         db.close()
-        self.infomessage("insert done")
+        showinfo("insert done")
 
 
     
@@ -218,10 +220,10 @@ class Conan:
             result=cursor.fetchall()
             for row in result:
                 print(row)
-                self.name.set(row[1])
-                self.tel.set(row[2])
-                self.addr.set(row[3])
-                self.des.set(row[4])
+                self.name.set("Name" + row[1])
+                self.tel.set("Tel" + row[2])
+                self.addr.set("addr" + row[3])
+                self.des.set( "Desc." + row[4])
 
         except:
             print("unable to fetch data")
