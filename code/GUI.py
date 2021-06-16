@@ -17,8 +17,7 @@ from person import Person
 
 class Conan:
     def __init__(self):
-        #self.person1=Person()
-        #self.person2=Person()
+        
 
         self.app = tkinter.Tk()
         self.app.geometry("800x500")
@@ -26,7 +25,7 @@ class Conan:
         self.app.configure(background="grey")
         self.app.title("Conan")
         self.ImageResultPaths=None
-        
+        self.DB()
         self.conan()
 
      
@@ -165,7 +164,7 @@ class Conan:
         index = Indexer()
         index.IndexHog()
       
-        showinfo("Database  has been  Updated", "Database Status")
+        showinfo("Database Status", "Database  has been  Updated")
 
 
    
@@ -186,7 +185,7 @@ class Conan:
             db.rollback()
             
         db.close()
-        showinfo("insert done","insert done")
+        showinfo("status","insert done")
 
 
     
@@ -222,13 +221,29 @@ class Conan:
                 print(row)
                 self.name.set("Name: " + row[1])
                 self.tel.set("Tel: " + row[2])
-                self.addr.set("addr: " + row[3])
+                self.addr.set("ADD: " + row[3])
                 self.des.set( "Des: " + row[4])
 
         except:
             print("unable to fetch data")
             
         db.close()
+
+    def DB(self):
+        db = sqlite3.connect('pe.db')
+        print("db connected")
+        cursor=db.cursor()
+        #cursor.execute("DROP TABLE IF EXISTS people")  
+        sql = "CREATE TABLE people ( id CHAR(30)NOT NULL ,NAME CHAR(20) , TEL CHAR(15), ADDR CHAR(20), DIS CHAR(50) )"
+        try:
+            cursor.execute(sql)
+            db.commit()
+        except:
+            db.rollback()
+            
+         
+        db.close()
+
 
 Conan()
 
