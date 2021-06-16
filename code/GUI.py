@@ -172,7 +172,7 @@ class Conan:
    
     def insert(self):
         id=self.person1
-        id="dataset/"+id.split("/")[-1]
+        id="dataset\\"+id.split("/")[-1]
         name=self.name_entry.get()
         tel=self.tel_entry.get()
         addr=self.add_entry.get()
