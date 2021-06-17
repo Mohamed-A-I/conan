@@ -112,8 +112,7 @@ In this project the user can find missing people by search with the old pictures
 	
 	\pagebreak
 	\section{Detailed analysis}
-	This project deals with Content Based video Retrieval (CBVR)and Content Based Image Retrieval(CBIR). 
-	For the CBIR, the adopted methods are color-based technique, texture-based technique, and shape-based technique. and then after the user select a technique and provide the image that he/she want to search for. The program extract features of the images dataset and save it then extract the features of the input image and compare the image with etracted feature database using the selected technique and by chi-squared distance. The chi-squared distance is distance measures that used to measures dissimilarity between two histograms. the following is an analysis for adopted technique in CBIR.
+
 
 some distance that we used to measure similarity 
 \begin{itemize}
@@ -138,12 +137,9 @@ some distance that we used to measure similarity
 	
 	\pagebreak
 	\section{Detailed description of the adopted techniques }
-	\subsection{Image}
-	\begin{itemize}
-		\item \textbf{{\large color based technique}} \\
-		we use \textbf{mean color histogram} \\
-		A histogram represents the distribution of pixel intensities as pins (whether color or grayscale) in an image. It can be visualized as a graph (or plot) that gives a high-level intuition of the intensity (pixel value) distribution. We are going to assume a RGB color space in this example, so these pixel values will be in the range of 0 to 255 then we get the mean values.
-		Histogram matching can best be thought of as a “transformation.” Our goal is to take an input image (the “source”) and update its pixel intensities such that the distribution of the input image histogram matches the distribution of a reference image(in the data set).\\
+	
+	
+	
 		\textbf{{\large steps}}\\
 		\begin{enumerate}
 			\item We make picture to parts to make a better histogram
@@ -156,7 +152,6 @@ some distance that we used to measure similarity
 
 
 
-	\end{itemize}
 
 	
 	\textbf{{\large distance}}\\
@@ -250,6 +245,9 @@ program.
 	
 	\pagebreak
 	\section{Testing scenarios and results}
+	\begin{itemize}
+		\item search for one member of team  using his old pic and we get the younger pic that stored in our DB
+	
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=120mm,height=60mm]{fig/17.png}
@@ -257,55 +255,67 @@ program.
 		%\label{image feature exract diagram}
 	\end{figure}
 	
-	
+		\item search for one member of team  using his old pic that has some animation as noise and we get the younger pic that stored in our DB 
 	\begin{figure}[H]
 	\centering
 	\includegraphics[width=120mm,height=60mm]{fig/18.png}
 	%\caption{image feature exract diagram }
 	%\label{image feature exract diagram}
 \end{figure}
+\pagebreak
+	\item search for one member of team  using his old pic that scanned from mobile and we get the younger pic that stored in our DB
 	\begin{figure}[H]
 	\centering
 	\includegraphics[width=120mm,height=60mm]{fig/14.png}
 	%\caption{image feature exract diagram }
 	%\label{image feature exract diagram}
 \end{figure}
+	\item search for one member of team  using his old pic that scanned using digital scanner and we get the younger pic that stored in our DB
 			\begin{figure}[H]
 			\centering
 			\includegraphics[width=120mm,height=60mm]{fig/15.png}
 			%\caption{image feature exract diagram }
 			%\label{image feature exract diagram}
 		\end{figure}
+	\pagebreak
+		\item search for one member of team  using his old pic  that taking by digital camera and we get the younger pic that stored in our DB
 	\begin{figure}[H]
 	\centering
 	\includegraphics[width=120mm,height=60mm]{fig/16.png}
 	%\caption{image feature exract diagram }
 	%\label{image feature exract diagram}
 \end{figure}
+	\item search for an actress using her old pic and we get the younger pic that stored in our DB
 	\begin{figure}[H]
 	\centering
 	\includegraphics[width=120mm,height=60mm]{fig/10.png}
 	%\caption{image feature exract diagram }
 	%\label{image feature exract diagram}
 \end{figure}
+\pagebreak
+	\item search for an actor  using his old pic and we get the younger pic that stored in our DB even if it is black and white
 	\begin{figure}[H]
 	\centering
 	\includegraphics[width=120mm,height=60mm]{fig/11.png}
 	%\caption{image feature exract diagram }
 	%\label{image feature exract diagram}
 \end{figure}
+\item search for an actor  using his old pic and we get the younger pic that stored in our DB 
 	\begin{figure}[H]
 	\centering
 	\includegraphics[width=120mm,height=60mm]{fig/12.png}
 	%\caption{image feature exract diagram }
 	%\label{image feature exract diagram}
 \end{figure}
+\pagebreak
+\item search for an actress  using her old pic and we get the younger pic that stored in our DB 
 	\begin{figure}[H]
 	\centering
 	\includegraphics[width=120mm,height=60mm]{fig/13.png}
 	%\caption{image feature exract diagram }
 	%\label{image feature exract diagram}
 \end{figure}
+\end{itemize}
 	\pagebreak
 	\section{End user guide}
 	\begin{enumerate}
