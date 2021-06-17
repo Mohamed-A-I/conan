@@ -2,11 +2,12 @@
 \contentsline {section}{\numberline {1}project description}{7}{section.1}%
 \contentsline {section}{\numberline {2}Beneficiaries of the project}{8}{section.2}%
 \contentsline {section}{\numberline {3}Detailed analysis}{9}{section.3}%
-\contentsline {section}{\numberline {4}Detailed description of the adopted techniques }{10}{section.4}%
-\contentsline {section}{\numberline {5}Time plan}{11}{section.5}%
-\contentsline {section}{\numberline {6}System architecture}{12}{section.6}%
-\contentsline {section}{\numberline {7}database design}{13}{section.7}%
-\contentsline {section}{\numberline {8}System design}{15}{section.8}%
-\contentsline {section}{\numberline {9}Testing scenarios and results}{16}{section.9}%
-\contentsline {section}{\numberline {10}End user guide}{21}{section.10}%
-\contentsline {section}{\numberline {11}Conclusion}{27}{section.11}%
+\contentsline {subsection}{\numberline {3.1}Face recognition}{9}{subsection.3.1}%
+\contentsline {section}{\numberline {4}Detailed description of the adopted techniques }{11}{section.4}%
+\contentsline {section}{\numberline {5}Time plan}{12}{section.5}%
+\contentsline {section}{\numberline {6}System architecture}{13}{section.6}%
+\contentsline {section}{\numberline {7}database design}{14}{section.7}%
+\contentsline {section}{\numberline {8}System design}{16}{section.8}%
+\contentsline {section}{\numberline {9}Testing scenarios and results}{17}{section.9}%
+\contentsline {section}{\numberline {10}End user guide}{22}{section.10}%
+\contentsline {section}{\numberline {11}Conclusion}{28}{section.11}%

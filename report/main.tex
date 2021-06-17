@@ -112,7 +112,22 @@ In this project the user can find missing people by search with the old pictures
 	
 	\pagebreak
 	\section{Detailed analysis}
-
+	This project deals with Content Based Image Retrieval(CBIR). For the CBIR, the adopted method is face recognition and then after the user provide the image(person) that he/she want to search for. The program extract features of the images dataset and save it then extract the features of the input image and compare the image with extracted feature database(persons saved in dataset) and after that compares it using Intersection Distance method to detect the closet person for input images and his/her information (if it was inserted to the database)
+	
+	\subsection{Face recognition}
+	Face recognition software use computer algorithms to determine specific, distinguishing features on a human's face Some features, like eyeball proximity or jaw shape, would then be transformed into a mathematical model and analyzed to data from other faces in a face recognition dataset. A face template is data on a specific face that differs from an image in that it is designed to only include certain traits that could be used to recognize a face over others 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=120mm,height=60mm]{fig/30.png}
+	\caption{Face recognition  }
+	\label{Face recognition }
+\end{figure}
+Rather than precisely recognizing an unidentified individual, certain facial recognition technologies are intended to compute a probabilistic match score between both the unidentified individual and certain face templates stored in the dataset. Rather than providing a single result, such algorithms will present numerous probable matches, sorted in order of probability of right identification.\\
+Facial recognition systems differ in their capacity to recognize persons under difficult situations, including such dim lighting, poor picture quality, as well as a skewed angle of view (such as in a photograph taken from above looking down on an unknown person).\\
+When it comes to errors, there are two key concepts to understand: \\
+Whenever a facial recognition system fails to capture an individual's face to a picture which is in fact stored in the dataset this is known as a "false negative." In other terms, the algorithm will respond to a query with zero results, which is incorrect.\\
+Whenever a facial recognition algorithm matches a human's face to a picture inside a dataset, however the similarity is inaccurate, it's called a "false positive." If a policeman sends an image of "Joe," the system incorrectly informs the cop that the image is of "Jack."\\
+While looking into a facial recognition algorithm pay special attention towards the "false positive" and "false negative" ratios, because there is almost always an exchange. When you use facial recognition to unlock your device, for example, it's preferable if the algorithm misidentifies you a few occasions (false negative) than for the system to misidentify other individuals as you and allow them to access your mobile (false positive). If a mistaken identity leads to the incarceration of an innocent individual (such as a mugshot database misidentification), the system must be developed to get as few false positives as possible.
 
 some distance that we used to measure similarity 
 \begin{itemize}
@@ -137,14 +152,26 @@ some distance that we used to measure similarity
 	
 	\pagebreak
 	\section{Detailed description of the adopted techniques }
+	For face recognition we use face recognition library part of dlib
+	we detect features of persons faces ex (eye color , eye size , iris , face parts ratios ) using face recognition from dlib to extract features and then save them in .csv file
+	
 	
 	
 	
 		\textbf{{\large steps}}\\
 		\begin{enumerate}
-			\item We make picture to parts to make a better histogram
-			\item Make histogram for each part
-			\item Combine all histograms 
+			\item Resize image to make it take less time
+			
+			
+		
+			
+			
+			
+			\item Turn it to gray 
+			\item Extract features
+			\item Save features in .csv file
+			\item (optional) add information for the person in the image to add it to our database so it’ll appear when we search through  images
+			
 		\end{enumerate}
 
 
@@ -155,8 +182,13 @@ some distance that we used to measure similarity
 
 	
 	\textbf{{\large distance}}\\
-	we use Mean squared error method to compare between the image we search for and images saved in database 
+	we use Intersection Distance error method to compare between the image we search for (after extracting features)  and features of the images saved in database\\
+	Intersection Distance \\
+	\begin{equation}
+		D_{Intersection}(h,\bar{h})= 1- \sum_{K-1}^{K} in(h_{K},\bar{h_{K}})
+	\end{equation}
 	
+	Meaning the lower the distance the better (closer to image we search for)
 	\pagebreak
 
 		
