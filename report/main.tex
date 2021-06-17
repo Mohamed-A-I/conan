@@ -59,7 +59,7 @@
 			\vspace{2mm}
 		\end{center}
 		\begin{center}
-			\textbf{\large Mohamed Atta Ibrahim \\Mohamed Yasser Ahmed Hanafy Elesaily
+			\textbf{\large Mohamed Atta Ibrahim \\Mohamed Yasser Ahmed 
 				\\Mahmoud Mohamed Benyamin \\ Hady Ashraf Ragab\\Yousef Abdelbadea Ali}
 			\vspace{2mm}
 		\end{center}
@@ -86,7 +86,7 @@
 	}	\end{abstract}
 	\pagebreak
 	\section*{Introduction}
-In this project the user can find missing people by search with the old pictures or young pictures of people. The project uses techniques that extract features from the pictures and check similarity between the query picture and the pictures in the data set to retrieve the similar picture to the query picture.
+In this project the user can find missing people by search with the old pictures or young pictures of missing people. The project uses techniques that extract features from the pictures and check similarity between the query picture and the pictures in the dataset to retrieve the similar picture to the query picture.
 	 
 	\addcontentsline{toc}{section}{Introduction}
 	
@@ -94,7 +94,9 @@ In this project the user can find missing people by search with the old pictures
 	\pagebreak
 	
 	\section{project description}
-	This is a python desktop application, it applies the multimedia techniques to analyze, design, and implement content-based multimedia retrieval system, where the two media that we are going to use are the images and the videos. In CBIR we have implemented three techniques color based using color histogram, texture based using gabour filter and shape based using histogram of gradient, in CBVR we used two techniques. the key frames extraction technique and content-based technique (Closed Captions).
+	This is a python desktop application, it applies the Pattern Recognition and	Digital Image Processing
+	 techniques to analyze, design, and implement multimedia retrieval system, where the media that we are going to use are the images . In CBIR we have implemented many techniques belong  Pattern Recognition and Digital Image Processing and AI techniques in retrieval and face Recognition.
+	 .
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=120mm,height=60mm]{fig/19.png}
@@ -104,6 +106,8 @@ In this project the user can find missing people by search with the old pictures
 
 	\pagebreak
 	\section{Beneficiaries of the project}
+	The family who want to find any one of their members because of missing of him.
+	Any one who the government wants to find from his traffic camera's pictures to detect his data and find him.
 
 	
 	\pagebreak
@@ -164,10 +168,14 @@ some distance that we used to measure similarity
 	we use Mean squared error method to compare between the image we search for and images saved in database 
 	
 	\pagebreak
-	\section{Task breakdown structure}
+
 		
 	\pagebreak
 	\section{Time plan}
+In Prepairing Datasets phase, We search for qualified dataset that qualify project.
+In parrallel, Extraction Features Algorithms design are finished. The software is
+developed and then make testing for all functionality of the
+program.
 
 	
 	\begin{figure}[H]
@@ -178,12 +186,23 @@ some distance that we used to measure similarity
 	\end{figure}
 	\pagebreak
 	\section{System architecture}
-	
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=140mm,height=80mm]{fig/22.png}
+		\caption{System architecture class-diagram }
+		\label{System architecture class-diagram}
+	\end{figure}
 
-
+	\section{System architecture}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=140mm,height=80mm]{fig/23.png}
+	\caption{class-diagram }
+	\label{class-diagram}
+\end{figure}
 
 \pagebreak
-	\section{Multimedia database design}
+	\section{database design}
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=120mm,height=60mm]{fig/18.png}
@@ -222,9 +241,9 @@ some distance that we used to measure similarity
 		\item \textbf{{\large user UI}} \\
 		this is a GUI the user interact with to make queries.
 		\item \textbf{{\large the processing part}}\\
-		this part is responsible to process images and videos according to the selected technique.
+		this part is responsible to process images according to the selected technique.
 		\item \textbf{{\large  operating scenario}}\\
-		 first we build our database for video and images for all technique and then select from GUI video or image search if image user select the technique and the image want to search with. if video user enter the search keyword or the video want to search with. all data from GUI is passed to the processing part to give results and print it in the GUI  
+		 first we build our database for  images for all technique and then select from GUI  image search if image user select the technique and the image want to search with. all data from GUI is passed to the processing part to give results and print it in the GUI  
 		
 	\end{enumerate}
 	
@@ -236,17 +255,10 @@ some distance that we used to measure similarity
 	\pagebreak
 	\section{Testing scenarios and results}
 
-	\begin{enumerate}
-		\item Color Histogram \\
-		The first algorithm implemented  in our project that relies on the color distribution of the image ,so images that have similar color distributions will be considered relevant to each other
 	
-	Here see a blue sky and a brown sandy beach at the bottom and darkness from the shadow
-	
-So the results are the images that contain blue , brown or dark color as we see in image above
 
 
 		
-	\end{enumerate}
 
 	\pagebreak
 	\section{End user guide}
