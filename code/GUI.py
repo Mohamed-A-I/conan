@@ -22,7 +22,7 @@ class Conan:
         self.app = tkinter.Tk()
         self.app.geometry("800x500")
         self.app.resizable(height=0,width=0)
-        self.app.configure(background="grey")
+        self.app.configure(background="gray")
         self.app.title("Conan")
         self.ImageResultPaths=None
         self.DB()
@@ -40,12 +40,12 @@ class Conan:
 # ##########################################################  
     def cover(self):
 
-        t1 = tkinter. Label(self.app,text="Conan",fg = "orange",bg="grey",
+        t1 = tkinter. Label(self.app,text="Conan",fg = "blue",bg="gray",
               font=("Arial", 50),
               )
         t1.place(x=270,y=200)      
         
-        t2= tkinter. Label(self.app,text="a way to find missing people",fg = "orange",bg="grey",
+        t2= tkinter. Label(self.app,text="a way to find missing people",fg = "blue",bg="gray",
               font=("Arial", 15),
               )
         t2.place(x=400,y=280)
@@ -213,6 +213,10 @@ class Conan:
         print(id)
         db = sqlite3.connect('pe.db')
         cursor=db.cursor()
+        self.name.set("Name: " + '')
+        self.tel.set("Tel: "   + '')
+        self.addr.set("ADD: "  + '')
+        self.des.set( "Des: "  + '')
 
         sql="SELECT * FROM `people` WHERE id ='%s' " %(id)
 
