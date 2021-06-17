@@ -6,9 +6,8 @@
 \contentsline {subsection}{\numberline {4.1}Image}{10}{subsection.4.1}%
 \contentsline {section}{\numberline {5}Time plan}{11}{section.5}%
 \contentsline {section}{\numberline {6}System architecture}{12}{section.6}%
-\contentsline {section}{\numberline {7}System architecture}{12}{section.7}%
-\contentsline {section}{\numberline {8}database design}{13}{section.8}%
-\contentsline {section}{\numberline {9}System design}{15}{section.9}%
-\contentsline {section}{\numberline {10}Testing scenarios and results}{16}{section.10}%
-\contentsline {section}{\numberline {11}End user guide}{17}{section.11}%
-\contentsline {section}{\numberline {12}Conclusion}{25}{section.12}%
+\contentsline {section}{\numberline {7}database design}{13}{section.7}%
+\contentsline {section}{\numberline {8}System design}{15}{section.8}%
+\contentsline {section}{\numberline {9}Testing scenarios and results}{16}{section.9}%
+\contentsline {section}{\numberline {10}End user guide}{19}{section.10}%
+\contentsline {section}{\numberline {11}Conclusion}{27}{section.11}%
