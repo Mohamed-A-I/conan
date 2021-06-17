@@ -197,22 +197,24 @@ program.
 
 \pagebreak
 	\section{database design}
+	\begin{itemize}
+		\item We implemented the schema in sqlite and store features in csv file which ID is the path of the image.
+			\begin{figure}[H]
+			\centering
+			\includegraphics[width=120mm,height=60mm]{fig/25.png}
+			\caption{DB EER Diagram }
+			\label{DB EER Diagram }
+		\end{figure}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=120mm,height=60mm]{fig/18.png}
-		\caption{extraction feature DB  }
-		\label{extraction feature DB }
+		\includegraphics[width=120mm,height=60mm]{fig/24.png}
+		\caption{Database Schema   }
+		\label{Database Schema }
 	\end{figure}
-	we deal with diffrent types of media like photos videos metadata 
-	so we include various extraction feture database in csv files like IndexHist.csv , IndexHog.csv , IndexShape.csv and video.csv
-	we include diffrent types of dataset that used for testing and implmentation like 
-	\begin{enumerate}
-		\item CIFAR-10-images
-		\item wang database
-		\item microsoft image database
-		\item Cambridge Object Recognition Image Database 
-		\item 50 short clib
-	\end{enumerate} 
+	\end{itemize}
+
+
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=120mm,height=60mm]{fig/21.png}
@@ -229,8 +231,8 @@ program.
 	\section{System design}
 	\begin{enumerate}
 		\item  \textbf{{\large system database}}\\
-		in this project we have a database for CBIR which has a 3 CSV files each one store features for one technique.
-		for CBVR. in key frames extraction we have a csv file which we store extracted key frames in it. for content-based "Closed Caption" we store the srt and vtt files on the disk
+		in this project we have a database for images which has a CSV file each one store features for all techniques.
+		
 		
 		\item \textbf{{\large user UI}} \\
 		this is a GUI the user interact with to make queries.
@@ -377,6 +379,7 @@ program.
 
 	\pagebreak
 	\section{Conclusion}
+	Finally, Conan application has been able to recongize missing people even if they have different ages.
 	
 
 
