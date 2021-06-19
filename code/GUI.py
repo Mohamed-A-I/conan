@@ -227,6 +227,7 @@ class Conan:
 
         sql="SELECT * FROM `people` WHERE id ='%s' " %(id)
 
+        # Try to fetch data or except
         try:
             cursor.execute(sql)
             result=cursor.fetchall()
