@@ -1,4 +1,3 @@
- 
 from tkinter import Frame, Tk, Toplevel, ttk
 import tkinter
 from tkinter.constants import CENTER, FALSE, TOP, TRUE
@@ -39,7 +38,7 @@ class Conan:
 #                                                          #
 # ##########################################################  
     def cover(self):
-
+        #conan logo
         t1 = tkinter. Label(self.app,text="Conan",fg = "blue",bg="gray",
               font=("Arial", 50),
               )
@@ -49,7 +48,7 @@ class Conan:
               font=("Arial", 15),
               )
         t2.place(x=400,y=280)
-
+        # splash conan logo for 3 seconds
         self.app.after(3000, t1.destroy)
         self.app.after(3000, t2.destroy)
      
@@ -93,6 +92,7 @@ class Conan:
 #                                                          #
 # ##########################################################  
     def menu(self):
+            #menu bar
             menubar = tkinter.Menu(self.app)
             menubar.add_command(label="Browse",command=self.image_search)
             menubar.add_command(label="Search", command=self.search)
@@ -101,7 +101,7 @@ class Conan:
 
             self.app.config(menu=menubar)
     def insert_gui(self):
-
+        #gui to insert new person
         self.search = Toplevel(self.app)
         self.search.geometry("300x500")
         self.search.title("conan Database")
@@ -111,10 +111,12 @@ class Conan:
 
 
     def find_image(self):
+        #dialog file to search for image 
         filename = fd.askopenfilename(title ='browese missing person')
         return filename
 
     def show_image(self):
+        # show image in conan database gui
         self.person1 = self.find_image()
         #os.system("cp {}  /dataset".format(self.person1))
         img = Image.open(self.person1)
@@ -128,7 +130,7 @@ class Conan:
 
 
     def entry_data(self):
-
+        # data for missing person
         tkinter.Label(self.search,text="Name:").place(x=10,y=300)
         self.name_entry = tkinter.Entry(self.search)
         self.name_entry.place(x=80,y=300)
@@ -151,6 +153,7 @@ class Conan:
     
 
     def image_search(self):
+        #search for nedded image
         self.person2 = self.find_image()
         img = Image.open(self.person2)
         img = img.resize((250, 250), Image.ANTIALIAS)
@@ -173,12 +176,15 @@ class Conan:
     def insert(self):
         id=self.person1
         id="dataset\\"+id.split("/")[-1]
+        # get information 
         name=self.name_entry.get()
         tel=self.tel_entry.get()
         addr=self.add_entry.get()
         dis=self.des_entry.get()
+        # connect to database 
         db = sqlite3.connect('pe.db')
         cursor=db.cursor()
+        #insert new person
         sql="INSERT INTO `people`('ID',`NAME`, `TEL`, `ADDR`,'DIS') VALUES ('%s','%s','%s','%s','%s')"%(id,name,tel,addr,dis)
         try:
             cursor.execute(sql)
@@ -197,6 +203,7 @@ class Conan:
 
 
     def search(self):
+        #search image and retrieve information and diplay it in conan gui
         Result = Retriever(self.person2)
         Result.HogSearch()
 
@@ -252,8 +259,3 @@ class Conan:
 
 
 Conan()
-
-
-
-
-
