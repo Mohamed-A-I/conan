@@ -14,7 +14,8 @@ class ColorDescriptor:
 
 	
 	
-
+        # Return the features of the object (face)
+        # that is recognized using the hog algorithm
 	def HOG(self, image):
 		image =cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
 	
