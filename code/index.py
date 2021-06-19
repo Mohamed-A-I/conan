@@ -43,6 +43,7 @@ class Indexer:
         output.close()
 
     def IndexHog(self):
+        # Write the database and save it in .csv file
         self.WriteDB(1,"IndexHog.csv")
         pass
 
