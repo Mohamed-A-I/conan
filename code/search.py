@@ -14,7 +14,7 @@ import face_recognition
 
 
 
-
+# A class that retrive the results of search
 class Retriever:
     def __init__(self,  Query,ColorDesc=(8, 12, 3)):
         self.cd = ColorDescriptor(ColorDesc)
