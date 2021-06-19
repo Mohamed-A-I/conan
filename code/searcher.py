@@ -2,6 +2,8 @@
 import numpy as np
 import csv
 import face_recognition
+
+# A class that performs the search
 class Searcher:
 	def __init__(self, indexPath):
 		# store our index path
